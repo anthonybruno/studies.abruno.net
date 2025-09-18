@@ -13,6 +13,7 @@ const projects = defineCollection({
         z.object({
           url: z.string(),
           title: z.string(),
+          new_window: z.boolean().optional(),
         }),
       ),
       technicalSkills: z.array(z.string()),

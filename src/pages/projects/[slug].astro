@@ -70,12 +70,12 @@ const { Content } = await render(post);
                 <a
                   class="group text-tony-cherry hover:text-tony-cherry-hover"
                   href={link.url}
-                  target="_blank"
+                  target={link.new_window ? '_blank' : '_self'}
                 >
                   <span class="underline decoration-transparent underline-offset-2 transition-all group-hover:decoration-blue-200 group-hover:dark:decoration-neutral-600">
                     {link.title}
                   </span>
-                  <span>↗</span>
+                  {link.new_window ? <span>↗</span> : <span>→</span>}
                 </a>
               </li>
             ))}
