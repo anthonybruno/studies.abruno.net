@@ -2,7 +2,8 @@
 import Layout from '@/layouts/Layout.astro';
 import DynamicText from '@/components/DynamicText.astro';
 import { getCollection } from 'astro:content';
-const projects = await getCollection('projects');
+let caseStudies = await getCollection('caseStudies');
+caseStudies = caseStudies.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Layout>
@@ -10,32 +11,35 @@ const projects = await getCollection('projects');
     <DynamicText>
       <h1 class="text-3xl font-semibold">Anthony Bruno</h1>
       <p>
-        I’m a frontend software engineer with over 15 years of experience
-        creating scalable, accessible, and responsive experiences for the web.
-        I’ve got a deep understanding and passion for leading complex long-term
-        projects, advocating for processes and standards, and collaborating with
-        multidisciplinary teams and stakeholders to create impactful solutions.
+        I&rsquo;m an Engineering Manager with over 15 years in frontend, where
+        I&rsquo;ve gone from building polished web platforms to shaping the
+        practices and workflows that help teams succeed. I care about creating
+        clarity in messy spaces, removing roadblocks, and making it easier for
+        engineers to do their best work.
       </p>
       <p>
-        Currently, I’m focused on empowering teams, simplifying workflows, and
-        delivering the highest quality features and products possible.
+        I&rsquo;ve led projects for companies like Google and Meta and helped
+        re-architect SaaS products used by thousands of employees. These days,
+        I&rsquo;m focused on developer experience and bringing AI into everyday
+        engineering so teams can move faster, improve quality, and spend more
+        time solving the problems that matter.
       </p>
     </DynamicText>
     <div>
-      <h2 class="pb-8 text-2xl">Projects</h2>
+      <h2 class="pb-8 text-2xl">Case Studies</h2>
       <ul class="space-y-6">
         {
-          projects.map((post) => (
+          caseStudies.map((project) => (
             <li>
-              <a class="group block" href={`/projects/${post.data.slug}`}>
+              <a class="group block" href={`/projects/${project.data.slug}`}>
                 <p
                   class:list={[
-                    'transition-color group-hover:text-tony-cherry-hover after:content-["_→"]',
+                    'transition-color group-hover:text-theme-hover after:content-["_→"]',
                   ]}
                 >
-                  {post.data.title}
+                  {project.data.title}
                 </p>
-                <span class="text-tony-500">{post.data.subtitle}</span>
+                <span class="text-tony-500">{project.data.subtitle}</span>
               </a>
             </li>
           ))
@@ -48,21 +52,21 @@ const projects = await getCollection('projects');
       <ul class="space-y-6">
         <li>
           <a
-            class="hover:text-tony-cherry-hover after:content-['_↗']"
+            class="hover:text-theme-hover after:content-['_↗']"
             href="mailto:anthony@abruno.net"
             target="_blank">Email</a
           >
         </li>
         <li>
           <a
-            class="hover:text-tony-cherry-hover after:content-['_↗']"
+            class="hover:text-theme-hover after:content-['_↗']"
             href="https://github.com/anthonybruno"
             target="_blank">Github</a
           >
         </li>
         <li>
           <a
-            class="hover:text-tony-cherry-hover after:content-['_↗']"
+            class="hover:text-theme-hover after:content-['_↗']"
             href="https://www.linkedin.com/in/brunotony"
             target="_blank">LinkedIn</a
           >

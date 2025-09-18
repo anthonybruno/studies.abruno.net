@@ -17,6 +17,8 @@
   --color-tony-600: #44403d;
   --color-tony-700: #2b2b2b;
   --color-tony-800: #1f1f1f;
+  --color-theme: #3366ff;
+  --color-theme-hover: #254ed9;
 
   --text-3xl: 1.75rem;
   --text-lg--line-height: 1.75;
@@ -43,14 +45,14 @@
 }
 
 @utility prose-abruno {
-  --tw-prose-body: var(--colors-neutral-800);
-  --tw-prose-headings: var(--colors-neutral-800);
-  --tw-prose-links: var(--colors-blue-500);
-  --tw-prose-counters: var(--colors-neutral-400);
-  --tw-prose-bullets: var(--colors-neutral-400);
-  --tw-prose-quotes: var(--colors-neutral-800);
-  --tw-prose-quote-borders: var(--colors-neutral-200);
-  --tw-prose-invert-body: var(--colors-neutral-100);
-  --tw-prose-invert-headings: var(--colors-neutral-100);
-  --tw-prose-invert-links: var(--colors-blue-500);
+  --tw-prose-body: var(--color-tony-800);
+  --tw-prose-headings: var(--color-tony-800);
+  --tw-prose-links: var(--color-tony-theme);
+  --tw-prose-counters: var(--color-tony-400);
+  --tw-prose-bullets: var(--color-tony-400);
+  --tw-prose-quotes: var(--color-tony-800);
+  --tw-prose-quote-borders: var(--color-tony-200);
+  --tw-prose-invert-body: var(--color-tony-100);
+  --tw-prose-invert-headings: var(--color-tony-100);
+  --tw-prose-invert-links: var(--color-tony-theme);
 }

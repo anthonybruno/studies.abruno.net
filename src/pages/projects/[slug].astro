@@ -5,14 +5,14 @@ import { getCollection, render } from 'astro:content';
 import { Picture } from 'astro:assets';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('projects');
-  return posts.map((post) => ({
+  const caseStudiesPaths = await getCollection('caseStudies');
+  return caseStudiesPaths.map((post) => ({
     params: { slug: post.data.slug },
     props: { post },
   }));
 }
 
-const projects = await getCollection('projects');
+const caseStudies = await getCollection('caseStudies');
 const { post } = Astro.props;
 const { Content } = await render(post);
 ---
@@ -68,7 +68,7 @@ const { Content } = await render(post);
             {post.data.links.map((link) => (
               <li>
                 <a
-                  class="group text-tony-cherry hover:text-tony-cherry-hover"
+                  class="group text-theme hover:text-theme-hover"
                   href={link.url}
                   target={link.new_window ? '_blank' : '_self'}
                 >
@@ -89,12 +89,12 @@ const { Content } = await render(post);
       <h2 class="pb-8 text-2xl">Projects</h2>
       <ul class="space-y-6 text-pretty">
         {
-          projects.map((project) => (
+          caseStudies.map((project) => (
             <li>
               <a class="group block" href={`/projects/${project.data.slug}`}>
                 <p
                   class:list={[
-                    'transition-color group-hover:text-tony-cherry-hover after:content-["_→"]',
+                    'transition-color group-hover:text-theme-hover after:content-["_→"]',
                   ]}
                 >
                   {project.data.title}
