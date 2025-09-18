@@ -1,7 +1,21 @@
 {
-  "name": "abruno",
+  "name": "abruno.net",
   "type": "module",
   "version": "0.0.1",
+  "description": "Personal website of Anthony Bruno",
+  "keywords": [
+    "portfolio",
+    "frontend",
+    "astro",
+    "tailwind",
+    "typescript"
+  ],
+  "author": "Anthony Bruno",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anthonybruno/abruno.net.git"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
