@@ -1,2 +1,56 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
+
+@theme {
+  --color-tony-mint: #00966d;
+  --color-tony-mint-hover: #007a59;
+  --color-tony-blueberry: #3366ff;
+  --color-tony-blueberry-hover: #254ed9;
+  --color-tony-cherry: #d32f2f;
+  --color-tony-cherry-hover: #aa2424;
+  --color-tony-off-white: #f7f4f2;
+  --color-tony-100: #fffcfa;
+  --color-tony-200: #ede9e6;
+  --color-tony-300: #b0aaa7;
+  --color-tony-400: #8b8582;
+  --color-tony-500: #635e5b;
+  --color-tony-600: #44403d;
+  --color-tony-700: #2b2b2b;
+  --color-tony-800: #1f1f1f;
+
+  --text-3xl: 1.75rem;
+  --text-lg--line-height: 1.75;
+  --font-sans: 'system-ui', sans-serif;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply antialiased;
+  }
+  @media (prefers-color-scheme: dark) {
+    html {
+      color-scheme: dark;
+    }
+  }
+  h1,
+  h2,
+  h3 {
+    @apply text-xl font-semibold;
+  }
+}
+
+@utility prose-abruno {
+  --tw-prose-body: var(--colors-neutral-800);
+  --tw-prose-headings: var(--colors-neutral-800);
+  --tw-prose-links: var(--colors-blue-500);
+  --tw-prose-counters: var(--colors-neutral-400);
+  --tw-prose-bullets: var(--colors-neutral-400);
+  --tw-prose-quotes: var(--colors-neutral-800);
+  --tw-prose-quote-borders: var(--colors-neutral-200);
+  --tw-prose-invert-body: var(--colors-neutral-100);
+  --tw-prose-invert-headings: var(--colors-neutral-100);
+  --tw-prose-invert-links: var(--colors-blue-500);
+}

@@ -1,6 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import DynamicText from '@/components/DynamicText.astro';
 import { getCollection, render } from 'astro:content';
+import { Picture } from 'astro:assets';
 
 export async function getStaticPaths() {
   const posts = await getCollection('projects');
@@ -10,13 +12,99 @@ export async function getStaticPaths() {
   }));
 }
 
+const projects = await getCollection('projects');
 const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout>
-  <h1>{post.data.title}</h1>
-  <div class="prose">
-    <Content />
+<Layout back={true}>
+  <div class="w-full pb-8">
+    {
+      post.data.primaryImage && (
+        <Picture
+          class="w-full dark:opacity-30 dark:duration-[4000ms] dark:hover:opacity-100"
+          src={post.data.primaryImage}
+          formats={['avif', 'webp', 'jpeg']}
+          alt={post.data.title}
+        />
+      )
+    }
+  </div>
+  <div class="space-y-14">
+    <h1 class="text-3xl">{post.data.title}</h1>
+    <div class="items-start max-sm:space-y-14 sm:flex sm:space-x-14">
+      <div class="lg:w-1/2">
+        <span>Technical</span>
+        <ul class="text-tony-500">
+          {
+            post.data.technicalSkills.map((item: string) => (
+              <li>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="lg:w-1/2">
+        <span>Strategy</span>
+        <ul class="text-tony-500">
+          {
+            post.data.strategySkills.map((item: string) => (
+              <li>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <DynamicText>
+      <Content />
+    </DynamicText>
+    <div>
+      {
+        post.data.links && (
+          <ul class="space-y-4">
+            {post.data.links.map((link) => (
+              <li>
+                <a
+                  class="group text-tony-cherry hover:text-tony-cherry-hover"
+                  href={link.url}
+                  target="_blank"
+                >
+                  <span class="underline decoration-transparent underline-offset-2 transition-all group-hover:decoration-blue-200 group-hover:dark:decoration-neutral-600">
+                    {link.title}
+                  </span>
+                  <span>↗</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </div>
+  <div class="pt-36">
+    <div>
+      <h2 class="pb-8 text-2xl">Projects</h2>
+      <ul class="space-y-6 text-pretty">
+        {
+          projects.map((project) => (
+            <li>
+              <a class="group block" href={`/projects/${project.data.slug}`}>
+                <p
+                  class:list={[
+                    'transition-color group-hover:text-tony-cherry-hover after:content-["_→"]',
+                  ]}
+                >
+                  {project.data.title}
+                </p>
+                <span class="text-tony-500">{project.data.subtitle}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </div>
 </Layout>

@@ -1,28 +1,71 @@
 ---
 import '@/styles/global.css';
+
+interface Props {
+  back?: boolean;
+  title?: string;
+  backLabel?: string;
+  backRoute?: string;
+}
+
+const {
+  back = false,
+  backRoute = '/',
+  backLabel = 'Back to Home',
+  title = 'Anthony Bruno · Lead Front-End Developer · Denver, CO',
+} = Astro.props;
+const OGDescription =
+  "I'm an experienced front-end developer passionate about leading projects and delivering high-quality experiences.";
 ---
 
-<!doctype html>
-<html lang="en">
+<html lang="en" class="text-[15px]">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>{title}</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✌️</text></svg>"
+    />
+
+    <meta name="title" content={title} />
+    <meta name="description" content={OGDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://abruno.net" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={OGDescription} />
+    <meta property="og:image" content="https://abruno.net/og-share-4.png" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={OGDescription} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://abruno.net/og-share-4.png" />
   </head>
-  <body>
-    <div class="prose">
-      <slot />
+  <body
+    class="border-tony-cherry bg-tony-off-white dark:bg-tony-800 text-tony-700 dark:text-tony-100 border-t-4 px-5 font-sans text-lg md:px-10"
+  >
+    <div class="mx-auto max-w-6xl grid-cols-12 gap-5 pt-12 md:pt-24 lg:grid">
+      {
+        back && (
+          <nav class="col-span-2 col-start-2 max-lg:mx-auto max-lg:pb-12">
+            <a
+              class="text-tony-500 hover:text-tony-cherry-hover sticky top-10 text-base leading-none whitespace-nowrap transition-colors"
+              href={backRoute}
+            >
+              ← {backLabel}
+            </a>
+          </nav>
+        )
+      }
+      <div class:list={['col-span-6', { 'col-start-4': back === false }]}>
+        <main>
+          <slot />
+        </main>
+        <footer class="pt-36 pb-14">
+          <small class="text-tony-500 text-base">
+            &copy; {new Date().getFullYear()}
+          </small>
+        </footer>
+      </div>
     </div>
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>

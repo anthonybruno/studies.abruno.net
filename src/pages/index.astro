@@ -1,28 +1,73 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import DynamicText from '@/components/DynamicText.astro';
 import { getCollection } from 'astro:content';
 const projects = await getCollection('projects');
 ---
 
 <Layout>
-  <h1>Welcome to my website</h1>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sed mollitia
-    cupiditate doloremque animi alias facere blanditiis saepe corrupti ut
-    laudantium quaerat, tempora et quasi illum earum quibusdam dicta suscipit?
-  </p>
-  <h2>My projects</h2>
-  <ul>
-    {
-      projects.map((post) => (
+  <div class="space-y-14">
+    <DynamicText>
+      <h1 class="text-3xl font-semibold">Anthony Bruno</h1>
+      <p>
+        I’m a frontend software engineer with over 15 years of experience
+        creating scalable, accessible, and responsive experiences for the web.
+        I’ve got a deep understanding and passion for leading complex long-term
+        projects, advocating for processes and standards, and collaborating with
+        multidisciplinary teams and stakeholders to create impactful solutions.
+      </p>
+      <p>
+        Currently, I’m focused on empowering teams, simplifying workflows, and
+        delivering the highest quality features and products possible.
+      </p>
+    </DynamicText>
+    <div>
+      <h2 class="pb-8 text-2xl">Projects</h2>
+      <ul class="space-y-6">
+        {
+          projects.map((post) => (
+            <li>
+              <a class="group block" href={`/projects/${post.data.slug}`}>
+                <p
+                  class:list={[
+                    'transition-color group-hover:text-tony-cherry-hover after:content-["_→"]',
+                  ]}
+                >
+                  {post.data.title}
+                </p>
+                <span class="text-tony-500">{post.data.subtitle}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="pb-8 text-2xl">Get in Touch</h2>
+      <ul class="space-y-6">
         <li>
-          <a href={`/projects/${post.data.slug}`}>{post.data.title}</a>
+          <a
+            class="hover:text-tony-cherry-hover after:content-['_↗']"
+            href="mailto:anthony@abruno.net"
+            target="_blank">Email</a
+          >
         </li>
-      ))
-    }
-  </ul>
-  <h2>My Social</h2>
-  <ul>
-    <li><a href="">Twitter</a></li>
-  </ul>
+        <li>
+          <a
+            class="hover:text-tony-cherry-hover after:content-['_↗']"
+            href="https://github.com/anthonybruno"
+            target="_blank">Github</a
+          >
+        </li>
+        <li>
+          <a
+            class="hover:text-tony-cherry-hover after:content-['_↗']"
+            href="https://www.linkedin.com/in/brunotony"
+            target="_blank">LinkedIn</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
 </Layout>
