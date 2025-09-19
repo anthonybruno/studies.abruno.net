@@ -1,21 +1,12 @@
-## ✌️ About
+## Anthony Bruno 👋
 
-I’m a front-end developer with over 15 years of experience creating scalable, accessible, and responsive experiences for the web. I’ve got a deep understanding and passion for leading complex long-term projects, advocating for processes and standards, and collaborating with multidisciplinary teams and stakeholders to create impactful solutions.
+I’m an Engineering Manager with 15+ years of frontend experience, now focused on leading teams and building systems that scale. My career has grown from shipping polished, accessible web platforms to shaping the culture, practices, and workflows that make teams successful.
 
-Currently, I’m focused on empowering teams, simplifying workflows, and delivering the highest quality features and products possible.
+I focus on enabling teams to do their best work by creating clarity in messy spaces, removing obstacles, and building strong partnerships across product and design. For me, leadership means helping people grow and building environments where ideas flow openly and problems get solved together.
 
-[View portfolio →](https://abruno.net)
+[View portfolio →](https://studies.abruno.net)
 
 ## ✨ Get in touch
 
 - [Email](mailto:anthonybruno@gmail.com)
 - [LinkedIn](https://linkedin.com/in/brunotony)
-
-## 📍 Built with
-
-**Tech**
-
-- [Astro](https://astro.build)
-- [Tailwind](https://tailwindcss.com)
-- [Vercel](https://vercel.com)
-- [Cool API](https://github.com/anthonybruno/cool-api)

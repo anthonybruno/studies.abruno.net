@@ -1,5 +1,5 @@
 {
-  "name": "abruno.net",
+  "name": "studies.abruno.net",
   "type": "module",
   "version": "0.0.1",
   "description": "Personal website of Anthony Bruno",
@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/anthonybruno/abruno.net.git"
+    "url": "https://github.com/anthonybruno/studies.abruno.net.git"
   },
   "scripts": {
     "dev": "astro dev",
