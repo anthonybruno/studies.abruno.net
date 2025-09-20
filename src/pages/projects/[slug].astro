@@ -12,9 +12,12 @@ export async function getStaticPaths() {
   }));
 }
 
-const caseStudies = await getCollection('caseStudies');
+let caseStudies = await getCollection('caseStudies');
 const { post } = Astro.props;
 const { Content } = await render(post);
+caseStudies = caseStudies
+  .filter((study) => study.data.slug !== post.data.slug)
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Layout back={true}>
@@ -76,7 +79,7 @@ const { Content } = await render(post);
   </div>
   <div class="pt-36">
     <div>
-      <h2 class="pb-8 text-2xl">Projects</h2>
+      <h2 class="pb-8 text-2xl">Case Studies</h2>
       <ul class="space-y-6 text-pretty">
         {
           caseStudies.map((project) => (
