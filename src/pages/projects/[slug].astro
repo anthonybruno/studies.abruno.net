@@ -33,30 +33,20 @@ const { Content } = await render(post);
   <div class="space-y-14">
     <h1 class="text-3xl">{post.data.title}</h1>
     <div class="items-start max-sm:space-y-14 sm:flex sm:space-x-14">
-      <div class="lg:w-1/2">
-        <span>Technical</span>
-        <ul class="text-tony-500">
-          {
-            post.data.technicalSkills.map((item: string) => (
-              <li>
-                <span>{item}</span>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-      <div class="lg:w-1/2">
-        <span>Strategy</span>
-        <ul class="text-tony-500">
-          {
-            post.data.strategySkills.map((item: string) => (
-              <li>
-                <span>{item}</span>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+      {
+        post.data.meta.map((group) => (
+          <div class="lg:w-1/2">
+            <span class="font-semibold">{group.label}</span>
+            <ul class="text-tony-500">
+              {group.items.map((item: string) => (
+                <li>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
     </div>
     <DynamicText>
       <Content />

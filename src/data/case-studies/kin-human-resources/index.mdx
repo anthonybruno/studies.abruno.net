@@ -1,7 +1,7 @@
 ---
 order: 2
 title: Kin Human Resources
-subtitle: Promoting positive organizational culture by focusing on individuals.
+subtitle: Scaling an HR platform to support growth and acquisition.
 slug: kin-human-resources
 primaryImage: 'callout@2x.png'
 links:
@@ -11,18 +11,19 @@ links:
   - url: 'https://wagepoint.com/blog/wagepoint-acquires-kinhr-to-build-ultimate-workplace-happiness-solution/'
     title: 'Press Release'
     new_window: true
-technicalSkills:
-  - 'Vue.js'
-  - 'Vuex'
-  - 'TypeScript'
-  - 'Cypress'
-  - 'Webpack'
-strategySkills:
-  - 'User research'
-  - 'Mentorship'
-  - 'Accessibility compliance'
-  - 'Product management'
-  - 'Agile methodologies'
+meta:
+  - label: 'Systems'
+    items:
+      - 'Component library'
+      - 'Design tokens'
+      - 'Unit/E2E testing'
+      - 'CI/CD pipelines'
+  - label: 'Practices'
+    items:
+      - 'DX Standards'
+      - 'Mentorship & onboarding'
+      - 'Accessibility compliance'
+      - 'Cross-team alignment'
 ---
 
 import { Picture } from 'astro:assets';
@@ -32,35 +33,37 @@ import kinWagepoint from './kin-wagepoint@2x.png';
 import pricing from './pricing@2x.png';
 import calendar from './calendar@2x.png';
 
-## Planning for Growth
+## The Challenge
 
-At Kin, we set out to create solutions that would allow our teams to introduce new features while iterating on our existing offerings to meet the needs for our customers, small business owners.
+At Kin, I led the rebuild of KinHR, our SaaS platform for workplace operations and HR automation. The goal was to create a scalable foundation that enabled teams to ship new features quickly while modernizing the product for long-term growth.
 
 <Picture src={laptop} formats={['avif', 'webp', 'jpeg']} alt="Laptop" />
 
-## Key Decisions
+## Our Direction
 
-After a thorough audit of the codebase, several critical shortcomings became apparent: We lacked adequate front-end documentation and automated testing, had no clear strategy or platform for implementing changes without worrying we'd be affecting other parts of the product, and had less than ideal support for accessibility or web standards. Ultimately we made the decision to rebuild the front-end from the ground up in order to create a solid foundation for supporting our new design language.
+A full audit revealed critical gaps: no automated testing, limited documentation, and fragile frontend code that made changes risky. Accessibility and standards compliance were also lagging.
+
+I drove the decision to rebuild the frontend architecture from the ground up, creating a foundation that could support a new design language and sustain rapid iteration.
 
 <Picture src={pricing} formats={['avif', 'webp', 'jpeg']} alt="Pricing" />
 
-## Research &amp; Planning
+## Finding Focus
 
-We first started out by taking a data-driven approach by identifying which features we'd prioritize by leveraging both user feedback and quantitative data to gain insight into which features were most important to our customers. Once we had a good idea of scope, I partnered with our product managers, design teams, and stakeholders to plan and define what the next 18 months would look like.
+We took a data-driven approach to prioritization, combining user feedback with analytics to identify which features mattered most. With scope defined, I partnered with product managers, design, and stakeholders to map out an 18-month plan that balanced customer needs with technical feasibility.
 
 <Picture src={calendar} formats={['avif', 'webp', 'jpeg']} alt="Calendar" />
 
-## Creating Internal Processes
+## Making It Real
 
-Early in development, we also implemented systems like Storybook, unit tests, linting, and code formatting to empower our team to produce consistent, well-tested code across our entire codebase. This approach not only enhanced our development process but also elevated our code quality, velocity, and maintainability across the board.
+To raise quality and velocity, I introduced Storybook, component-driven development, unit testing, linting, and consistent formatting across repos. These systems gave engineers confidence to ship without fear of regressions, improving both consistency and maintainability.
 
 <Picture src={components} formats={['avif', 'webp', 'jpeg']} alt="Components" />
 
-## User Feedback
+## Learning from Feedback
 
-Throughout our development process, we placed significant emphasis on gathering and incorporating user feedback to inform the redesign of core features, such as Employee Reviews. Among our enhancements, we introduced support for creating custom review questions, allowing our customers to get the most accurate feedback possible during reviews.
+Throughout development, I worked with design and backend teams to ensure user needs drove technical decisions. For example, feedback on Employee Reviews led us to enable custom review questions, increasing flexibility.
 
-As we continued to iterate, I also worked closely with our back-end team to shape our API schemas, define HTTP methods, and establish better error handling protocols. Through this alignment we were able to create a system architecture that met both the user's needs as well as our own technical requirements.
+On the backend, I aligned with engineers on API schemas and error handling, reducing rework and improving collaboration.
 
 <Picture
   src={kinWagepoint}
@@ -68,8 +71,8 @@ As we continued to iterate, I also worked closely with our back-end team to shap
   alt="Kin Wagepoint"
 />
 
-## Acquisition
+## What It Achieved
 
-Overall our rebuild created a more user-friendly and powerful product that ultimately led to Kin's acquisition by Canadian fintech company Wagepoint, which gave them the ability to create a single solution to streamlined payroll, time attendance, and human resources for small business owners.
+The rebuild delivered a faster, more usable product that improved developer velocity, enhanced customer experience, and positioned KinHR (4.5K users) for acquisition by Wagepoint.
 
-Post acquisition, we partnered with Wagepoint to onboard their engineering and management teams while continuing to refine infrastructure and documentation.
+Post-acquisition, I supported Wagepoint’s engineering and management teams through onboarding, infrastructure refinement, and documentation.

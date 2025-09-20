@@ -1,7 +1,7 @@
 ---
 order: 3
 title: Meta F8 Conference
-subtitle: Cultivating the emergence of future technologies.
+subtitle: Delivering the backbone for Meta’s global developer conference.
 slug: meta-f8-conference
 primaryImage: 'earth@2x.png'
 links:
@@ -14,17 +14,19 @@ links:
   - url: 'https://developers.facebook.com/videos/f8-2017/f8-2017-keynote'
     title: 'Watch Keynote'
     new_window: true
-technicalSkills:
-  - 'React'
-  - 'Node.js'
-  - 'Nightwatch.js'
-  - 'Three.js'
-  - 'Twilio'
-strategySkills:
-  - 'Technical leadership'
-  - 'Roadmap development'
-  - 'Cross-functional collaboration'
-  - 'Product management'
+meta:
+  - label: 'Platform'
+    items:
+      - 'React + Node.js hub'
+      - '300+ digital displays'
+      - 'Real-time Twilio monitoring'
+      - 'Registration + schedule'
+  - label: 'Execution'
+    items:
+      - 'Daily live updates'
+      - 'Cross-team collaboration'
+      - '3D design prototypes'
+      - 'Scale: 50K onsite, 3M online'
 ---
 
 import { Picture } from 'astro:assets';
@@ -34,9 +36,9 @@ import signage from './signage@2x.png';
 import site from './site@2x.png';
 import zuck from './zuck@2x.png';
 
-## Converge to Inspire
+## Setting the Stage
 
-When 4,000 developers, entrepreneurs, and creators decided to get together to explore how Meta is shaping the future of the digital landscape, we knew we had to build an online experience that was as innovative as they are. Partnering with the in-house Global Marketing Events team, we focused on creating an online hub for all things F8.
+When 4,000 developers, entrepreneurs, and creators came together for Meta’s F8 Conference, the challenge was to deliver an online and on-site experience that matched the scale and ambition of the event. Partnering with Meta’s Global Marketing Events team, I worked to design and build the central hub for all things F8.
 
 <Picture
   src={create}
@@ -44,9 +46,9 @@ When 4,000 developers, entrepreneurs, and creators decided to get together to ex
   alt="Create Together"
 />
 
-## Pivoting, Planning, and Presentations
+## Designing for Live Events
 
-From the beginning, we realized that it was necessary to create an online experience that would adapt to the dynamic and live nature of the event by continuously releasing updates throughout the week. We also understood the importance of creating a site that easily allowed all attendees to check in throughout the day to figure out which sessions or keynotes they’d find interesting both on-site and digitally.
+The site needed to adapt to the real-time nature of the conference, with continuous updates across the week. We focused on usability, ensuring attendees could browse sessions, track announcements, and check in daily whether they were in the convention center or tuning in online.
 
 <Picture
   src={mobileFirst}
@@ -54,20 +56,15 @@ From the beginning, we realized that it was necessary to create an online experi
   alt="Mobile-First Community Hub"
 />
 
-## Mobile-First Community Hub
+## Building the Platform
 
-Over four months, we successfully crafted a fully branded mobile-first site built on React and Parse. This experience featured a live, real-time event schedule, daily product unveilings, and a system for enabling creators from around the world to organize meetups to enjoy F8 together. Additionally, we built solutions to handle conference event registration that allowed users to buy and manage registrations and hotel accommodations.
-
-To convey the message of connectivity, I also partnered with design to quickly iterate and prototype various 3D concepts to elevate our overall design language.
+In just four months, we launched a fully branded, mobile-first site built with React and Parse. Core features included real-time schedules, daily product unveilings, and registration tools integrated with hotels. We also built global community features that enabled creators worldwide to host meetups and participate in F8 together. To elevate the experience, I collaborated with design on immersive 3D concepts that shaped the event’s digital identity.
 
 <Picture src={site} formats={['avif', 'webp', 'jpeg']} alt="Site" />
 
-## Finding Our (Your) Way
+## Navigating the Venue
 
-Finding Our (Your) Way
-During development, we also realized the significance of having a well-designed signage and wayfinding system. Partnering with event staff, we set out to develop a centralized system capable of displaying up-to-date information for each break-out room and general schedule information throughout the weekend. This allowed our attendees to navigate the gigantic 500k sqft venue.
-
-We also recognized that with a system this large, we’d need to have global override capabilities, allowing us to update info about happy hours and other social events. Additionally, we also built a Twilio-powered logging platform to send texts to our team if any hardware failures happened throughout the conference.
+Inside the 500,000 sq. ft. conference hall, I engineered a digital signage and wayfinding system that powered 300+ displays with real-time updates. Global override tools let us broadcast urgent announcements, while a Twilio-powered monitoring platform ensured hardware uptime by texting our team about failures in seconds.
 
 <Picture
   src={signage}
@@ -75,8 +72,10 @@ We also recognized that with a system this large, we’d need to have global ove
   alt="Digital Signage"
 />
 
-## Smooth Sailing
+## Delivering the Impact
 
-Overall the event went off without any major issues. Zuck announced new AR platforms and deep learning frameworks, and Meta continues to shape the future of the web.
+The platform scaled seamlessly to support 50,000+ attendees on-site and millions more online. With product launches in AR and deep learning broadcast globally, the F8 digital experience set a new bar for large-scale event technology, merging physical and digital worlds into a single, connected conference.
 
 <Picture src={zuck} formats={['avif', 'webp', 'jpeg']} alt="Zuck" />
+
+Oh also my 3D models looked great on stage.

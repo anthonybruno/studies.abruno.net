@@ -17,8 +17,12 @@ const caseStudies = defineCollection({
           new_window: z.boolean().optional(),
         }),
       ),
-      technicalSkills: z.array(z.string()),
-      strategySkills: z.array(z.string()),
+      meta: z.array(
+        z.object({
+          label: z.string(),
+          items: z.array(z.string()),
+        }),
+      ),
     }),
 });
 
