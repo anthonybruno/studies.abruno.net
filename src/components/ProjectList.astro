@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+
+export interface Props {
+  title?: string;
+  className?: string;
+  hideActive?: boolean;
+  currentSlug?: string;
+}
+
+const {
+  title = 'Case Studies',
+  className = '',
+  hideActive = false,
+  currentSlug,
+} = Astro.props;
+
+const caseStudies = await getCollection('caseStudies');
+const sortedCaseStudies = caseStudies.sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const filteredCaseStudies =
+  hideActive && currentSlug
+    ? sortedCaseStudies.filter((project) => project.data.slug !== currentSlug)
+    : sortedCaseStudies;
+---
+
+<div class={className}>
+  <h2 class="pb-8 text-2xl">{title}</h2>
+  <ul class="space-y-6">
+    {
+      filteredCaseStudies.map((project) => (
+        <li>
+          <a class="group block" href={`/projects/${project.data.slug}`}>
+            <p
+              class:list={[
+                'transition-color group-hover:text-theme-hover font-medium after:content-["_\u2192"]',
+              ]}
+            >
+              {project.data.title}
+            </p>
+            <span class="text-tony-400">{project.data.subtitle}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
