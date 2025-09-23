@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import DynamicText from '@/components/DynamicText.astro';
+import ProjectList from '@/components/ProjectList.astro';
 import { getCollection, render } from 'astro:content';
 import { Picture } from 'astro:assets';
 
@@ -12,12 +13,8 @@ export async function getStaticPaths() {
   }));
 }
 
-let caseStudies = await getCollection('caseStudies');
 const { post } = Astro.props;
 const { Content } = await render(post);
-caseStudies = caseStudies
-  .filter((study) => study.data.slug !== post.data.slug)
-  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Layout back={true}>
@@ -61,13 +58,11 @@ caseStudies = caseStudies
             {post.data.links.map((link) => (
               <li>
                 <a
-                  class="group text-theme hover:text-theme-hover"
+                  class="group text-theme hover:text-theme-hover font-medium"
                   href={link.url}
                   target={link.new_window ? '_blank' : '_self'}
                 >
-                  <span class="underline decoration-transparent underline-offset-2 transition-all group-hover:decoration-blue-200 group-hover:dark:decoration-neutral-600">
-                    {link.title}
-                  </span>
+                  <span>{link.title}</span>
                   {link.new_window ? <span>↗</span> : <span>→</span>}
                 </a>
               </li>
@@ -78,26 +73,11 @@ caseStudies = caseStudies
     </div>
   </div>
   <div class="pt-36">
-    <div>
-      <h2 class="pb-8 text-2xl">Case Studies</h2>
-      <ul class="space-y-6 text-pretty">
-        {
-          caseStudies.map((project) => (
-            <li>
-              <a class="group block" href={`/projects/${project.data.slug}`}>
-                <p
-                  class:list={[
-                    'transition-color group-hover:text-theme-hover after:content-["_→"]',
-                  ]}
-                >
-                  {project.data.title}
-                </p>
-                <span class="text-tony-500">{project.data.subtitle}</span>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+    <ProjectList
+      title="Case Studies"
+      className="text-pretty"
+      hideActive={true}
+      currentSlug={post.data.slug}
+    />
   </div>
 </Layout>
