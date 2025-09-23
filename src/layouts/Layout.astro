@@ -46,32 +46,32 @@ const OGDescription =
       content="https://studies.abruno.net/og-share.png"
     />
   </head>
-</html>
-<body
-  class="before:bg-theme bg-tony-100 dark:bg-tony-800 text-tony-700 dark:text-tony-100 px-5 font-sans text-lg before:fixed before:top-0 before:left-0 before:h-1.5 before:w-full md:px-10"
->
-  <div class="mx-auto max-w-6xl grid-cols-12 gap-5 pt-12 md:pt-24 lg:grid">
-    {
-      back && (
-        <nav class="col-span-2 col-start-2 max-lg:mx-auto max-lg:pb-12">
-          <a
-            class="text-tony-500 hover:text-theme-hover sticky top-10 text-base leading-none font-medium whitespace-nowrap transition-colors"
-            href={backRoute}
-          >
-            ← {backLabel}
-          </a>
-        </nav>
-      )
-    }
-    <div class:list={['col-span-6', { 'col-start-4': back === false }]}>
-      <main>
-        <slot />
-      </main>
-      <footer class="pt-36 pb-14">
-        <small class="text-tony-500 text-base">
-          &copy; {new Date().getFullYear()}
-        </small>
-      </footer>
+  <body
+    class="before:bg-theme bg-tony-100 dark:bg-tony-800 text-tony-700 dark:text-tony-100 px-5 font-sans text-lg before:fixed before:top-0 before:left-0 before:z-50 before:h-1 before:w-full before:content-[''] md:px-10"
+  >
+    <div class="mx-auto max-w-6xl grid-cols-12 gap-5 pt-12 md:pt-24 lg:grid">
+      {
+        back && (
+          <nav class="col-span-2 col-start-2 max-lg:mx-auto max-lg:pb-12">
+            <a
+              class="text-tony-500 hover:text-theme-hover sticky top-10 text-base leading-none font-medium whitespace-nowrap transition-colors"
+              href={backRoute}
+            >
+              ← {backLabel}
+            </a>
+          </nav>
+        )
+      }
+      <div class:list={['col-span-6', { 'col-start-4': back === false }]}>
+        <main>
+          <slot />
+        </main>
+        <footer class="pt-36 pb-14">
+          <small class="text-tony-500 text-base">
+            &copy; {new Date().getFullYear()}
+          </small>
+        </footer>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
+</html>
