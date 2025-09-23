@@ -25,7 +25,7 @@ const OGDescription =
     <title>{title}</title>
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✌️</text></svg>"
+      href="data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='-8 -8 80 78'%3E%3Cpath d='M4.2 53.7a4 4 0 0 0-4 4 4 4 0 0 0 4 4.2l55.6.1a4 4 0 0 0 4.1-4 4 4 0 0 0-4-4.1l-55.7-.2Z' fill='%2336F'/%3E%3Cpath d='M41 38.3c-5.9 1.5-12 1.5-17.9 0l-18-5A4 4 0 1 0 3 41.1l18 5a42.4 42.4 0 0 0 22.2 0L61 41.3a4 4 0 0 0 3-3.9 4 4 0 0 0-5.2-4L41 38.4Z' fill='%232563EB'/%3E%3Cpath d='M43.6 22.3a34.2 34.2 0 0 1-23.1 0l-15-5.4a4 4 0 1 0-2.8 7.6l15 5.4a42.4 42.4 0 0 0 28.7 0l14.9-5.3a4 4 0 1 0-2.8-7.6l-14.9 5.3Z' fill='%2336F'/%3E%3Cpath d='M46 6c-8.8 4-19 4-28-.1L5.8.4a4 4 0 1 0-3.4 7.4l12.2 5.5a42.4 42.4 0 0 0 34.9 0l12-5.4A4 4 0 1 0 58.3.5L46.1 6Z' fill='%2336F'/%3E%3C/svg%3E"
     />
 
     <meta name="title" content={title} />
@@ -46,32 +46,32 @@ const OGDescription =
       content="https://studies.abruno.net/og-share.png"
     />
   </head>
-  <body
-    class="before:bg-theme bg-tony-100 dark:bg-tony-800 text-tony-700 dark:text-tony-100 px-5 font-sans text-lg before:fixed before:top-0 before:left-0 before:h-1.5 before:w-full md:px-10"
-  >
-    <div class="mx-auto max-w-6xl grid-cols-12 gap-5 pt-12 md:pt-24 lg:grid">
-      {
-        back && (
-          <nav class="col-span-2 col-start-2 max-lg:mx-auto max-lg:pb-12">
-            <a
-              class="text-tony-500 hover:text-theme-hover sticky top-10 text-base leading-none font-medium whitespace-nowrap transition-colors"
-              href={backRoute}
-            >
-              ← {backLabel}
-            </a>
-          </nav>
-        )
-      }
-      <div class:list={['col-span-6', { 'col-start-4': back === false }]}>
-        <main>
-          <slot />
-        </main>
-        <footer class="pt-36 pb-14">
-          <small class="text-tony-500 text-base">
-            &copy; {new Date().getFullYear()}
-          </small>
-        </footer>
-      </div>
-    </div>
-  </body>
 </html>
+<body
+  class="before:bg-theme bg-tony-100 dark:bg-tony-800 text-tony-700 dark:text-tony-100 px-5 font-sans text-lg before:fixed before:top-0 before:left-0 before:h-1.5 before:w-full md:px-10"
+>
+  <div class="mx-auto max-w-6xl grid-cols-12 gap-5 pt-12 md:pt-24 lg:grid">
+    {
+      back && (
+        <nav class="col-span-2 col-start-2 max-lg:mx-auto max-lg:pb-12">
+          <a
+            class="text-tony-500 hover:text-theme-hover sticky top-10 text-base leading-none font-medium whitespace-nowrap transition-colors"
+            href={backRoute}
+          >
+            ← {backLabel}
+          </a>
+        </nav>
+      )
+    }
+    <div class:list={['col-span-6', { 'col-start-4': back === false }]}>
+      <main>
+        <slot />
+      </main>
+      <footer class="pt-36 pb-14">
+        <small class="text-tony-500 text-base">
+          &copy; {new Date().getFullYear()}
+        </small>
+      </footer>
+    </div>
+  </div>
+</body>
